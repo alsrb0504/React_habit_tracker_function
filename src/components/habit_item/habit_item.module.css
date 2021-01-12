@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.habit {
+  font-weight: bold;
+}
+
+.count {
+  padding: 0 0.4rem;
+  margin-left: 0.3rem;
+  border-radius: 50%;
+  background-color: lightgreen;
+  color: white;
+}
+
+.icon {
+  color: orange;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+
+.trash {
+  color: darkred;
+}
