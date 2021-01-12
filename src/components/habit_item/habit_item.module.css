@@ -12,14 +12,24 @@
   padding: 0 0.4rem;
   margin-left: 0.3rem;
   border-radius: 50%;
-  background-color: lightgreen;
+  background-color: darkseagreen;
   color: white;
+}
+
+button {
+  border: 0;
+  background-color: white;
+  outline: 0;
+  transition: transform 100ms ease-in;
+}
+button:hover {
+  transform: scale(1.05);
 }
 
 .icon {
   color: orange;
   font-size: 1.4rem;
-  margin-left: 0.5rem;
+  margin-left: 0.2rem;
 }
 
 .trash {
