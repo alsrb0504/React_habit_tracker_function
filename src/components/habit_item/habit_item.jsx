@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './habit_item.module.css';
 
-const HabitItem = (props) => {
-	const handleIncrease = (event) => {
+const HabitItem = memo((props) => {
+	const handleIncrease = () => {
 		props.handleIncrease(props.habit);
 	}
 
-	const handleDecrease = (event) => {
+	const handleDecrease = () => {
 		props.handleDecrease(props.habit);
 	}
 
-	const handleDelete = (event) => {
+	const handleDelete = () => {
 		props.handleDelete(props.habit);
 	}
 
 	return(
 		<div className={styles.container}>
-			<p className={styles.habit}>{props.habit}</p>
-			<span className={styles.count}>{props.count}</span>
+			<p className={styles.habit}>{props.habit.name}</p>
+			<span className={styles.count}>{props.habit.count}</span>
 			<button onClick={handleIncrease} className={styles.icon}>
 				<i className='fas fa-plus-square'></i>
 			</button>
@@ -31,6 +31,6 @@ const HabitItem = (props) => {
 			
 		</div>
 	)
-}
+})
 
 export default HabitItem;

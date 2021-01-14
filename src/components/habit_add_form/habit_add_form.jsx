@@ -1,17 +1,16 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import Button from '../button/button';
 import styles from './habit_add_form.module.css';
 
-const HabitAddForm = ({habits, addHabits}) => {
+const HabitAddForm = memo(({habits, addHabits}) => {
 	
 	const inputRef = useRef();
 
-	const handleClick = (event)=>{
-		event.preventDefault();
+	const handleClick = ()=>{
 		const value = inputRef.current.value;
 		const new_habit = {
 			id: habits.length+1,
-			habit: value,
+			name: value,
 			count: 0,
 		}
 		const updated = habits.slice();
@@ -22,11 +21,10 @@ const HabitAddForm = ({habits, addHabits}) => {
 
 	return (
 		<form>
-			<input placeholder="Habit.." ref={inputRef} type="text"/>
-			{/* <button onClick={handleClick}>Add</button> */}
+			<input className={styles.input} placeholder="Habit.." ref={inputRef} type="text"/>
 			<Button text="Add" handleClick={handleClick} />
 		</form>
 	)
-}
+})
 
 export default HabitAddForm;

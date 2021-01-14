@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './button.module.css';
 
-const Button = (props) => {
+const Button = memo( ({text, handleClick}) => {
 
 	const ClickEvent = (event)=>{
-		props.handleClick(event);
+		event.preventDefault();
+		handleClick();
 	}
 
 	return(
-		<button className={styles.button} onClick={ClickEvent}>{props.text}</button>
+		<button className={styles.button} onClick={ClickEvent}>{text}</button>
 	)
-}
+})
 
 export default Button;
