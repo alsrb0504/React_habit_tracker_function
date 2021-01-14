@@ -1,9 +1,8 @@
-import './App.css';
 import React, { useState } from 'react';
 import Habits from './components/habits/habits';
 import Header from './components/header/header';
 import HabitAddForm from './components/habit_add_form/habit_add_form';
-
+import Button from './components/button/button';
 
 const App = (props) => {
 
@@ -25,9 +24,9 @@ const App = (props) => {
 		}
 	]);
 
-  const addHabits = (new_habits) => {
-    setHabits(new_habits);
-  }
+	const addHabits = (new_habits) => {
+		setHabits(new_habits);
+	}
 
 	const handleIncrease = (habit) =>{
 		const updated = habits.map(item => {
@@ -58,28 +57,35 @@ const App = (props) => {
 				return item;
 			}
 		})
-		console.log(updated);
 		setHabits(updated);
 	}
 
-  
-  return(
-      <>
-        <Header />
-        <HabitAddForm 
-          habits={habits}
-          addHabits={addHabits}
-        />
-        <Habits 
-          habits={habits}
-          handleIncrease={handleIncrease} 
-          handleDecrease={handleDecrease} 
-          handleDelete={handleDelete} 
-        />
-      </>
-  )
+	const handleReset = (event) => {
+		event.preventDefault();
+		const updated = habits.map(item => {
+			item.count = 0;
+			return item;
+		})
+		setHabits(updated);
+	}
 
-  
+	return(
+		<>
+			<Header />
+			<HabitAddForm 
+			habits={habits}
+			addHabits={addHabits}
+			/>
+			<Habits 
+			habits={habits}
+			handleIncrease={handleIncrease} 
+			handleDecrease={handleDecrease} 
+			handleDelete={handleDelete} 
+			/>
+			<Button text="Reset All" handleClick={handleReset} />
+		</>
+	)
+
 };
 
 export default App;

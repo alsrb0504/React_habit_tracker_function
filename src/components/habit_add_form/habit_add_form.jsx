@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import Button from '../button/button';
+import styles from './habit_add_form.module.css';
 
 const HabitAddForm = ({habits, addHabits}) => {
 	
@@ -15,12 +17,14 @@ const HabitAddForm = ({habits, addHabits}) => {
 		const updated = habits.slice();
 		updated.push(new_habit);
 		addHabits(updated);
+		inputRef.current.value = "";
 	}
 
 	return (
-		<form action="">
-			<input ref={inputRef} type="text"/>
-			<button onClick={handleClick}>Add</button>
+		<form>
+			<input placeholder="Habit.." ref={inputRef} type="text"/>
+			{/* <button onClick={handleClick}>Add</button> */}
+			<Button text="Add" handleClick={handleClick} />
 		</form>
 	)
 }
